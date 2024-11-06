@@ -1,3 +1,10 @@
+# Alunos
+```
+GUILHERME COUTO GOMES RA: 22.122.035-3
+PEDRO HENRIQUE ALGODOAL PINTO RA: 22.122.035-3
+SAMIR OLIVEIRA DA COSTA RA: 22.122.035-3
+```
+
 # Estrutura das Coleções MongoDB
 
 ## 1. Departamentos
