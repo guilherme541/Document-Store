@@ -134,7 +134,7 @@ db.grupos_tcc.aggregate([
 1. Para ver o histórico de um aluno específico:
 ```javascript
 db.alunos.aggregate([
-  { $match: { "_id": 123456789 } },  // Substitua pelo RA real
+  { $match: { "_id": 325324239 } },  // Substitua pelo RA real
   { $unwind: "$historico" },
   { $project: {
     _id: 0,
@@ -150,7 +150,7 @@ db.alunos.aggregate([
 ```javascript
 db.alunos.aggregate([
   { $unwind: "$historico" },
-  { $match: { "historico.professor._id": 11111111111 } },  // Substitua pelo ID real
+  { $match: { "historico.professor._id": 21237179161 } },  // Substitua pelo ID real
   { $group: {
     _id: {
       disciplina: "$historico.disciplina.nome",
@@ -164,9 +164,53 @@ db.alunos.aggregate([
 3. Para ver formados em 2023/2:
 ```javascript
 db.alunos.aggregate([
-  { $lookup: { from: "cursos", localField: "curso._id", foreignField: "_id", as: "curso_completo" } },
-  { $match: { "historico": { $elemMatch: { "ano": 2023, "semestre": 2 } } } }
-  // ... resto da query como mostrado acima
+  {
+    $lookup: {
+      from: "cursos",
+      localField: "curso._id",
+      foreignField: "_id",
+      as: "curso_completo"
+    }
+  },
+  { $unwind: "$curso_completo" },
+  {
+    $match: {
+      "historico": {
+        $elemMatch: {
+          "ano": 2023,
+          "semestre": 2
+        }
+      }
+    }
+  },
+  {
+    $project: {
+      nome: 1,
+      curso: "$curso.nome",
+      disciplinas_aprovadas: {
+        $size: {
+          $filter: {
+            input: "$historico",
+            as: "h",
+            cond: { $gte: ["$$h.nota_final", 5] }
+          }
+        }
+      },
+      total_disciplinas: { $size: "$curso_completo.matriz_curricular" }
+    }
+  },
+  {
+    $match: {
+      $expr: { $gte: ["$disciplinas_aprovadas", "$total_disciplinas"] }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      nome: 1,
+      curso: 1
+    }
+  }
 ])
 ```
 
