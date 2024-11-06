@@ -4,7 +4,7 @@
 | Nome                             | RA            |
 |---------------------------------|---------------|
 | GUILHERME COUTO GOMES           | 22.122.035-3 |
-| PEDRO HENRIQUE ALGODOAL PINTO   | 22.122.000-0 |
+| PEDRO HENRIQUE ALGODOAL PINTO   | 22.122.072-6 |
 | SAMIR OLIVEIRA DA COSTA         | 22.122.000-0 |
 
 ##  Descrição
