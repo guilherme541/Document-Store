@@ -287,23 +287,4 @@ db.alunos.aggregate([
 ])
 ```
 
-### Índices Recomendados:
 
-Para melhor performance, recomendo criar os seguintes índices:
-
-```javascript
-// Índice para busca rápida de alunos
-db.alunos.createIndex({ "_id": 1 })
-
-// Índice para busca de professores
-db.alunos.createIndex({ "historico.professor._id": 1 })
-
-// Índice para busca por ano e semestre
-db.alunos.createIndex({ "historico.ano": 1, "historico.semestre": 1 })
-
-// Índice para relacionamento com cursos
-db.alunos.createIndex({ "curso._id": 1 })
-
-// Índice para departamentos
-db.departamentos.createIndex({ "coordenador._id": 1 })
-```
