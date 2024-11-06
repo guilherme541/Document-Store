@@ -14,6 +14,7 @@ Este projeto consiste na conversão de um sistema universitário originalmente d
 ```
 ├── src/
 │   ├── create-collections.js    # Criação das coleções no MongoDB
+│   ├── create-collections.js    # Criação das coleções no MongoDB
 │   ├── main.py                 # Script de população dos dados
 │   └── queries.js              # Queries MongoDB para relatórios
 ├── README.md
