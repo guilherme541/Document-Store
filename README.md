@@ -6,6 +6,7 @@
 | GUILHERME COUTO GOMES           | 22.122.035-3 |
 | PEDRO HENRIQUE ALGODOAL PINTO   | 22.122.072-6 |
 | SAMIR OLIVEIRA DA COSTA         | 22.122.030-4 |
+| LUIGGI PASCHOALINI GARCIA       | 22.122.006-4 |
 
 ##  Descrição
 Este projeto consiste na conversão de um sistema universitário originalmente desenvolvido em PostgreSQL para MongoDB, demonstrando a implementação de um banco de dados do tipo Document Store. O sistema gerencia informações sobre alunos, professores, cursos, departamentos, disciplinas e TCCs.
